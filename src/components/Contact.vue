@@ -137,6 +137,38 @@ const sendMessage = async () => {
   } finally {
     isLoading.value = false
   }
+    const sendMessage = async () => {
+    isLoading.value = true
+    formMessage.value = ''
+    
+    try {
+      const response = await fetch('/.netlify/functions/send-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      })
+      
+      const data = await response.json()
+      
+      if (data.success) {
+        formMessageType.value = 'success'
+        formMessage.value = data.message
+        form.name = ''
+        form.email = ''
+        form.message = ''
+      } else {
+        formMessageType.value = 'error'
+        formMessage.value = data.message
+      }
+    } catch (error) {
+      formMessageType.value = 'error'
+      formMessage.value = 'Network error. Please try again later.'
+    } finally {
+      isLoading.value = false
+    }
+  }
 }
 </script>
 
