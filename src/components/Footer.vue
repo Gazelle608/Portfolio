@@ -52,9 +52,9 @@
       
       <!-- Copyright Bar -->
       <div class="footer-bottom">
-        <p>&copy; 2026 Gazelle Pearson. All Rights Reserved.</p>
+        <p>&copy; 2026 All Rights Reserved.</p>
         <p class="footer-built">
-          Built with <i class="fas fa-heart"></i> in Cape Town
+          Built By Gazelle Pearson
         </p>
       </div>
     </div>
@@ -72,7 +72,6 @@ const scrollToSection = (sectionId) => {
 
 <style scoped>
 .footer {
-  background: linear-gradient(180deg, #0a1a12 0%, #061208 100%);
   border-top: 1px solid var(--border-subtle);
   padding: 4rem 0 1.5rem;
   margin-top: 2rem;
