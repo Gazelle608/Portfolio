@@ -514,6 +514,7 @@ onMounted(() => {
   .geometry-container {
     width: 280px;
     height: 280px;
+    display: none;
   }
   
   .ring-face {
