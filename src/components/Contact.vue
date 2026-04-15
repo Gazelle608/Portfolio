@@ -280,6 +280,37 @@ const sendMessage = async () => {
   to { transform: rotate(360deg); }
 }
 
+@media (max-width: 1024px) and (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-info {
+    gap: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+  
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .contact-form {
+    padding: 1.8rem;
+  }
+  
+  .form-control {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 860px) {
   .contact-grid {
     grid-template-columns: 1fr;

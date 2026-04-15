@@ -158,6 +158,24 @@ export default {
   transform: scale(1.1);
 }
 
+@media (max-width: 1024px) and (min-width: 768px) {
+  .header-inner {
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    font-size: 1.6rem;
+  }
+  
+  .nav-links {
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;

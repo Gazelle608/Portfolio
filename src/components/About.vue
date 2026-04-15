@@ -131,6 +131,30 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 1024px) and (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+  }
+  
+  .image-frame {
+    max-width: 300px;
+  }
+  
+  .about-intro {
+    font-size: 1.1rem;
+  }
+  
+  .skills h4 {
+    font-size: 1rem;
+  }
+  
+  .skill-tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
 @media (max-width: 860px) {
   .about-grid {
     grid-template-columns: 1fr;

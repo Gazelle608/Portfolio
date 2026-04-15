@@ -50,24 +50,41 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from 'vue'
 
-defineOptions({
-  name: 'AnimatedCube'
-})
-
-const sceneRef = ref<HTMLElement | null>(null)
+const sceneRef = ref(null)
 
 onMounted(() => {
-  // Animation runs automatically without hover interactions
+  const container = document.querySelector('.geometry-container')
+  const scene = sceneRef.value
+  
+  // Only add mouse interaction for desktop and tablet
+  if (window.innerWidth > 767 && container && scene) {
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      const centerX = rect.width / 2
+      const centerY = rect.height / 2
+      
+      const rotateY = ((x - centerX) / centerX) * 20
+      const rotateX = ((y - centerY) / centerY) * -20
+      
+      scene.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+    })
+    
+    container.addEventListener('mouseleave', () => {
+      scene.style.transform = 'rotateX(-15deg) rotateY(15deg)'
+    })
+  }
 })
 </script>
 
 <style scoped>
 .geometry-container {
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   perspective: 1200px;
   position: relative;
   margin: 0 auto;
@@ -95,12 +112,12 @@ onMounted(() => {
 
 .ring-face {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 320px;
+  height: 320px;
   top: 50%;
   left: 50%;
-  margin-left: -140px;
-  margin-top: -140px;
+  margin-left: -160px;
+  margin-top: -160px;
   border-radius: 20px;
   background: transparent;
   border-width: 4px;
@@ -122,22 +139,22 @@ onMounted(() => {
 }
 
 .ring-1 .front {
-  transform: rotateY(0deg) translateZ(140px);
+  transform: rotateY(0deg) translateZ(160px);
   background: linear-gradient(135deg, rgba(15, 92, 75, 0.08), rgba(26, 127, 107, 0.15));
 }
 
 .ring-1 .back {
-  transform: rotateY(180deg) translateZ(140px);
+  transform: rotateY(180deg) translateZ(160px);
   background: linear-gradient(135deg, rgba(15, 92, 75, 0.08), rgba(26, 127, 107, 0.15));
 }
 
 .ring-1 .left {
-  transform: rotateY(-90deg) translateZ(140px);
+  transform: rotateY(-90deg) translateZ(160px);
   background: linear-gradient(135deg, rgba(15, 92, 75, 0.08), rgba(26, 127, 107, 0.15));
 }
 
 .ring-1 .right {
-  transform: rotateY(90deg) translateZ(140px);
+  transform: rotateY(90deg) translateZ(160px);
   background: linear-gradient(135deg, rgba(15, 92, 75, 0.08), rgba(26, 127, 107, 0.15));
 }
 
@@ -147,10 +164,10 @@ onMounted(() => {
 }
 
 .ring-2 .ring-face {
-  width: 200px;
-  height: 200px;
-  margin-left: -100px;
-  margin-top: -100px;
+  width: 240px;
+  height: 240px;
+  margin-left: -120px;
+  margin-top: -120px;
   border-color: var(--accent);
   box-shadow: 
     0 0 30px rgba(212, 175, 55, 0.6),
@@ -158,22 +175,22 @@ onMounted(() => {
 }
 
 .ring-2 .front {
-  transform: rotateY(0deg) translateZ(100px);
+  transform: rotateY(0deg) translateZ(120px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(243, 229, 171, 0.1));
 }
 
 .ring-2 .back {
-  transform: rotateY(180deg) translateZ(100px);
+  transform: rotateY(180deg) translateZ(120px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(243, 229, 171, 0.1));
 }
 
 .ring-2 .left {
-  transform: rotateY(-90deg) translateZ(100px);
+  transform: rotateY(-90deg) translateZ(120px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(243, 229, 171, 0.1));
 }
 
 .ring-2 .right {
-  transform: rotateY(90deg) translateZ(100px);
+  transform: rotateY(90deg) translateZ(120px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(243, 229, 171, 0.1));
 }
 
@@ -183,10 +200,10 @@ onMounted(() => {
 }
 
 .ring-3 .ring-face {
-  width: 240px;
-  height: 240px;
-  margin-left: -120px;
-  margin-top: -120px;
+  width: 288px;
+  height: 288px;
+  margin-left: -144px;
+  margin-top: -144px;
   border-color: var(--secondary);
   border-radius: 30px;
   box-shadow: 
@@ -195,22 +212,22 @@ onMounted(() => {
 }
 
 .ring-3 .front {
-  transform: rotateX(45deg) rotateZ(45deg) translateZ(120px);
+  transform: rotateX(45deg) rotateZ(45deg) translateZ(144px);
   background: linear-gradient(135deg, rgba(42, 157, 143, 0.06), rgba(61, 184, 158, 0.12));
 }
 
 .ring-3 .back {
-  transform: rotateX(45deg) rotateZ(45deg) rotateY(180deg) translateZ(120px);
+  transform: rotateX(45deg) rotateZ(45deg) rotateY(180deg) translateZ(144px);
   background: linear-gradient(135deg, rgba(42, 157, 143, 0.06), rgba(61, 184, 158, 0.12));
 }
 
 .ring-3 .left {
-  transform: rotateX(45deg) rotateZ(45deg) rotateY(-90deg) translateZ(120px);
+  transform: rotateX(45deg) rotateZ(45deg) rotateY(-90deg) translateZ(144px);
   background: linear-gradient(135deg, rgba(42, 157, 143, 0.06), rgba(61, 184, 158, 0.12));
 }
 
 .ring-3 .right {
-  transform: rotateX(45deg) rotateZ(45deg) rotateY(90deg) translateZ(120px);
+  transform: rotateX(45deg) rotateZ(45deg) rotateY(90deg) translateZ(144px);
   background: linear-gradient(135deg, rgba(42, 157, 143, 0.06), rgba(61, 184, 158, 0.12));
 }
 
@@ -220,10 +237,10 @@ onMounted(() => {
 }
 
 .ring-4 .ring-face {
-  width: 160px;
-  height: 160px;
-  margin-left: -80px;
-  margin-top: -80px;
+  width: 192px;
+  height: 192px;
+  margin-left: -96px;
+  margin-top: -96px;
   border-color: var(--accent-light);
   border-radius: 25px;
   box-shadow: 
@@ -232,34 +249,34 @@ onMounted(() => {
 }
 
 .ring-4 .front {
-  transform: rotateX(-45deg) rotateZ(-30deg) translateZ(80px);
+  transform: rotateX(-45deg) rotateZ(-30deg) translateZ(96px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(243, 229, 171, 0.08));
 }
 
 .ring-4 .back {
-  transform: rotateX(-45deg) rotateZ(-30deg) rotateY(180deg) translateZ(80px);
+  transform: rotateX(-45deg) rotateZ(-30deg) rotateY(180deg) translateZ(96px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(243, 229, 171, 0.08));
 }
 
 .ring-4 .left {
-  transform: rotateX(-45deg) rotateZ(-30deg) rotateY(-90deg) translateZ(80px);
+  transform: rotateX(-45deg) rotateZ(-30deg) rotateY(-90deg) translateZ(96px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(243, 229, 171, 0.08));
 }
 
 .ring-4 .right {
-  transform: rotateX(-45deg) rotateZ(-30deg) rotateY(90deg) translateZ(80px);
+  transform: rotateX(-45deg) rotateZ(-30deg) rotateY(90deg) translateZ(96px);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(243, 229, 171, 0.08));
 }
 
 /* Core Sphere */
 .core-sphere {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   top: 50%;
   left: 50%;
-  margin-left: -30px;
-  margin-top: -30px;
+  margin-left: -36px;
+  margin-top: -36px;
   transform-style: preserve-3d;
   animation: pulse-core 3s ease-in-out infinite;
 }
@@ -334,7 +351,7 @@ onMounted(() => {
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
+  width: 264px;
   height: 25px;
   background: radial-gradient(ellipse at center, rgba(42, 157, 143, 0.35) 0%, transparent 70%);
   border-radius: 50%;
@@ -405,8 +422,95 @@ onMounted(() => {
   }
 }
 
+/* Pause animations on hover */
+.geometry-container:hover .scene {
+  animation-play-state: paused;
+}
+
+.geometry-container:hover .ring {
+  animation-play-state: paused;
+}
+
+.geometry-container:hover .core-sphere {
+  animation-play-state: paused;
+}
+
+.geometry-container:hover .particle {
+  animation-play-state: paused;
+}
+
+.geometry-container:hover .geometry-shadow {
+  animation-play-state: paused;
+}
+
 /* Responsive */
-@media (max-width: 500px) {
+@media (max-width: 1024px) and (min-width: 768px) {
+  .geometry-container {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .ring-face {
+    width: 256px;
+    height: 256px;
+    margin-left: -128px;
+    margin-top: -128px;
+  }
+  
+  .ring-1 .front { transform: rotateY(0deg) translateZ(128px); }
+  .ring-1 .back { transform: rotateY(180deg) translateZ(128px); }
+  .ring-1 .left { transform: rotateY(-90deg) translateZ(128px); }
+  .ring-1 .right { transform: rotateY(90deg) translateZ(128px); }
+  
+  .ring-2 .ring-face {
+    width: 192px;
+    height: 192px;
+    margin-left: -96px;
+    margin-top: -96px;
+  }
+  
+  .ring-2 .front { transform: rotateY(0deg) translateZ(96px); }
+  .ring-2 .back { transform: rotateY(180deg) translateZ(96px); }
+  .ring-2 .left { transform: rotateY(-90deg) translateZ(96px); }
+  .ring-2 .right { transform: rotateY(90deg) translateZ(96px); }
+  
+  .ring-3 .ring-face {
+    width: 230px;
+    height: 230px;
+    margin-left: -115px;
+    margin-top: -115px;
+  }
+  
+  .ring-3 .front { transform: rotateX(45deg) rotateZ(45deg) translateZ(115px); }
+  .ring-3 .back { transform: rotateX(45deg) rotateZ(45deg) rotateY(180deg) translateZ(115px); }
+  .ring-3 .left { transform: rotateX(45deg) rotateZ(45deg) rotateY(-90deg) translateZ(115px); }
+  .ring-3 .right { transform: rotateX(45deg) rotateZ(45deg) rotateY(90deg) translateZ(115px); }
+  
+  .ring-4 .ring-face {
+    width: 154px;
+    height: 154px;
+    margin-left: -77px;
+    margin-top: -77px;
+  }
+  
+  .ring-4 .front { transform: rotateX(-45deg) rotateZ(-30deg) translateZ(77px); }
+  .ring-4 .back { transform: rotateX(-45deg) rotateZ(-30deg) rotateY(180deg) translateZ(77px); }
+  .ring-4 .left { transform: rotateX(-45deg) rotateZ(-30deg) rotateY(-90deg) translateZ(77px); }
+  .ring-4 .right { transform: rotateX(-45deg) rotateZ(-30deg) rotateY(90deg) translateZ(77px); }
+  
+  .core-sphere {
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    margin-top: -29px;
+  }
+  
+  .geometry-shadow {
+    width: 211px;
+  }
+}
+
+@media (max-width: 767px) {
   .geometry-container {
     width: 280px;
     height: 280px;
@@ -465,6 +569,19 @@ onMounted(() => {
     height: 45px;
     margin-left: -22.5px;
     margin-top: -22.5px;
+  }
+  
+  .geometry-shadow {
+    width: 183px;
+  }
+  
+  /* Disable animations on mobile */
+  .scene,
+  .ring,
+  .core-sphere,
+  .particle,
+  .geometry-shadow {
+    animation: none !important;
   }
 }
 </style>

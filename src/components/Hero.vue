@@ -2,10 +2,10 @@
   <section class="hero" id="home">
     <div class="hero-grid">
       <div class="hero-content">
-        <p class="pre-title">ENTRY-LVL SOFTWARE DEVELOPER</p>
+        <p class="pre-title">FULL‑STACK DEVELOPER</p>
         <h1>Hi, I'm <span class="highlight">Gazelle</span></h1>
         <p class="hero-desc">
-          A trainee developer with advanced coding experience, creating beautiful web 
+          An Entry-lvl developer with advanced coding experience, creating beautiful web 
           experiences with a focus on full‑stack architecture.
         </p>
         <div class="hero-buttons">
@@ -13,7 +13,7 @@
             <i class="fas fa-arrow-down"></i>
             View My Work
           </a>
-          <a href="Resume.pdf" class="btn btn-outline" download>
+          <a href="/Resume.pdf" class="btn btn-outline" download>
             <i class="fas fa-download"></i>
             Download CV
           </a>
@@ -47,8 +47,8 @@ const scrollToSection = (sectionId) => {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
   align-items: center;
   width: 100%;
 }
@@ -72,7 +72,7 @@ const scrollToSection = (sectionId) => {
 .hero-desc {
   color: var(--text-light);
   font-size: 1.15rem;
-  max-width: 90%;
+  max-width: 95%;
   margin: 1.5rem 0 2.5rem;
   line-height: 1.7;
 }
@@ -87,10 +87,32 @@ const scrollToSection = (sectionId) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 400px;
+  min-height: 350px;
 }
 
-@media (max-width: 860px) {
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .hero-desc {
+    font-size: 1rem;
+  }
+  
+  .hero-visual {
+    min-height: 320px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 3rem;
+    min-height: auto;
+  }
+  
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -108,13 +130,28 @@ const scrollToSection = (sectionId) => {
   }
   
   .hero-visual {
-    min-height: 300px;
+    min-height: 280px;
+    order: -1;
   }
 }
 
-@media (max-width: 500px) {
-  .hero-buttons .btn {
-    width: 100%;
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 0 2rem;
+  }
+  
+  .pre-title {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+  
+  .hero-desc {
+    font-size: 0.95rem;
+    margin: 1rem 0 1.5rem;
+  }
+  
+  .hero-visual {
+    min-height: 240px;
   }
 }
 </style>

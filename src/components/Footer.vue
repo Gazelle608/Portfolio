@@ -55,18 +55,20 @@ const scrollToSection = (sectionId) => {
 .footer {
   background: var(--dark-card);
   border-top: 1px solid var(--border-subtle);
-  padding: 3rem 0 1.5rem;
+  padding: 3rem 2rem 1.5rem;
   margin-top: 2rem;
 }
 
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: minmax(280px, 1.8fr) minmax(220px, 1fr) minmax(220px, 1fr);
   gap: 3rem;
   margin-bottom: 2.5rem;
 }
@@ -161,6 +163,26 @@ const scrollToSection = (sectionId) => {
   border-top: 1px solid var(--border-subtle);
   color: var(--text-muted);
   font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .footer-about p {
+    font-size: 0.95rem;
+  }
+  
+  .social-link {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .footer-links ul {
+    gap: 0.6rem;
+  }
 }
 
 @media (max-width: 860px) {

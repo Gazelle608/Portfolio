@@ -165,6 +165,43 @@ import { projects } from '../data/projects.js'
   width: 100%;
 }
 
+@media (max-width: 1024px) and (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-card {
+    padding: 1.8rem;
+  }
+  
+  .project-icon-container {
+    height: 100px;
+  }
+  
+  .project-icon-container i {
+    font-size: 3rem;
+  }
+  
+  .icon-background {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .project-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .project-info p {
+    font-size: 0.95rem;
+  }
+  
+  .project-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.7rem;
+  }
+}
+
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
