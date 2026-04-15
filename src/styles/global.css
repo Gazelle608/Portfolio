@@ -1,0 +1,197 @@
+:root {
+    --primary: #0f5c4b;
+    --primary-light: #1a7f6b;
+    --primary-dark: #0a3d33;
+    --secondary: #2a9d8f;
+    --accent: #d4af37;
+    --accent-light: #f3e5ab;
+    --accent-dark: #b8960c;
+    --dark: #061208;
+    --dark-card: #0a1a12;
+    --text: #e8f0e8;
+    --text-light: #b8d4c0;
+    --text-muted: #6b8f7a;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.2);
+    --transition: all 0.3s ease;
+    --border-subtle: rgba(212, 175, 55, 0.2);
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--text);
+    background: linear-gradient(135deg, #061208 0%, #0a1a12 50%, #0d2218 100%);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Section Styles */
+section {
+    scroll-margin-top: 80px;
+    padding: 5rem 0;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #f3e5ab 0%, var(--accent) 50%, #e6c84d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-light);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: var(--text);
+    border: none;
+    box-shadow: 0 8px 20px rgba(15, 92, 75, 0.4);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(15, 92, 75, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--accent-light);
+    color: var(--accent-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+.btn-github {
+    background: rgba(15, 92, 75, 0.3);
+    color: var(--text);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(10px);
+}
+
+.btn-github:hover {
+    background: var(--primary);
+    border-color: var(--accent);
+    color: var(--accent-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+    #app {
+        padding: 0 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 3.5rem 0;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+}
