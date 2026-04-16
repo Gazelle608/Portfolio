@@ -20,15 +20,21 @@
         </div>
       </div>
       <div class="hero-visual">
-        <AnimatedCube />
+        <div class="constellation">
+          <div class="constellation-core">&lt;/&gt;</div>
+          <div class="star star-1"></div>
+          <div class="star star-2"></div>
+          <div class="star star-3"></div>
+          <div class="star star-4"></div>
+          <div class="star star-5"></div>
+          <div class="star star-6"></div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import AnimatedCube from './AnimatedCube.vue'
-
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId)
   if (element) {
@@ -88,6 +94,66 @@ const scrollToSection = (sectionId) => {
   justify-content: center;
   align-items: center;
   min-height: 350px;
+}
+
+.constellation {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.constellation-core {
+  position: relative;
+  z-index: 2;
+  font-size: 3.2rem;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
+}
+
+.star {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4e07e, #d4af37);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.75);
+}
+
+.star-1 {
+  top: 18%;
+  left: 24%;
+}
+
+.star-2 {
+  top: 22%;
+  right: 22%;
+}
+
+.star-3 {
+  top: 48%;
+  left: 10%;
+}
+
+.star-4 {
+  bottom: 22%;
+  left: 30%;
+}
+
+.star-5 {
+  bottom: 18%;
+  right: 20%;
+}
+
+.star-6 {
+  top: 55%;
+  right: 10%;
 }
 
 /* Tablet */
