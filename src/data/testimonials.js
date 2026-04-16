@@ -17,5 +17,17 @@ export const testimonials = [
         name: "Thina Maliwa",
         role: "Intern LC Studio",
         message: "Gazelle is definitely an inspiration as she is always striving for her best work and does not settle for less in anything she does. She is always a reminder to me to push myself in anything i do when I'm in the same environment as her or working with her.",
+    },
+    {
+        id: 4,
+        name: "Tylor Mentor",
+        role: "Software Developer",
+        message: "It was my honor to have worked with a very talented software developer who always performed beyond expectations. Their analytical skills, meticulousness, and punctuality were among their strengths. They communicated effectively and exhibited great commitment to all tasks assigned to them. I strongly recommend this individual for any software development position.",
+    },
+        {
+        id: 5,
+        name: "Mogamat Toufeeq Farat",
+        role: "YouthCode Off-site | Progamme Support Lead",
+        message: "Gazelle is a hardworking and punctual individual who consistently exceeds expectations. She delivers quality work, works well in teams, and is a strong developer. I’ve enjoyed working with her and would recommend her for any junior role.",
     }
 ]
