@@ -40,13 +40,12 @@
         </div>
         
         <div class="contact-form">
-          <form @submit="sendMessage" ref="formRef">
+          <form @submit.prevent="sendMessage">
             <div class="form-group">
               <label for="name">Name</label>
               <input 
                 type="text" 
-                id="name"
-                name="name"
+                id="name" 
                 v-model="form.name"
                 required
                 placeholder="Your name"
@@ -58,8 +57,7 @@
               <label for="email">Email</label>
               <input 
                 type="email" 
-                id="email"
-                name="email"
+                id="email" 
                 v-model="form.email"
                 required
                 placeholder="your@email.com"
@@ -70,8 +68,7 @@
             <div class="form-group">
               <label for="message">Message</label>
               <textarea 
-                id="message"
-                name="message"
+                id="message" 
                 v-model="form.message"
                 required
                 placeholder="Your message..."
@@ -232,7 +229,7 @@ const sendMessage = async () => {
 .form-control {
   width: 100%;
   padding: 0.85rem 1rem;
-  background: rgba(6, 18, 8, 0.7);
+  background: rgba(10, 15, 20, 0.5);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   font-family: inherit;
@@ -244,12 +241,47 @@ const sendMessage = async () => {
 .form-control:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-  background: rgba(10, 26, 18, 0.9);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
 .form-control::placeholder {
   color: var(--text-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border: none;
+  box-shadow: 0 8px 20px rgba(15, 92, 75, 0.3);
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15, 92, 75, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .form-message {
@@ -283,37 +315,6 @@ const sendMessage = async () => {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
-}
-
-@media (max-width: 1024px) and (min-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-  
-  .contact-info {
-    gap: 1.5rem;
-  }
-  
-  .info-card {
-    padding: 1.2rem;
-    gap: 1.2rem;
-  }
-  
-  .contact-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-  
-  .contact-form {
-    padding: 1.8rem;
-  }
-  
-  .form-control {
-    padding: 0.75rem 0.9rem;
-    font-size: 0.95rem;
-  }
 }
 
 @media (max-width: 860px) {
