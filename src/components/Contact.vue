@@ -40,12 +40,13 @@
         </div>
         
         <div class="contact-form">
-          <form @submit.prevent="sendMessage">
+          <form @submit="sendMessage" ref="formRef">
             <div class="form-group">
               <label for="name">Name</label>
               <input 
                 type="text" 
-                id="name" 
+                id="name"
+                name="name"
                 v-model="form.name"
                 required
                 placeholder="Your name"
@@ -57,7 +58,8 @@
               <label for="email">Email</label>
               <input 
                 type="email" 
-                id="email" 
+                id="email"
+                name="email"
                 v-model="form.email"
                 required
                 placeholder="your@email.com"
@@ -68,7 +70,8 @@
             <div class="form-group">
               <label for="message">Message</label>
               <textarea 
-                id="message" 
+                id="message"
+                name="message"
                 v-model="form.message"
                 required
                 placeholder="Your message..."
@@ -105,13 +108,17 @@ const form = reactive({
 const isLoading = ref(false)
 const formMessage = ref('')
 const formMessageType = ref('success')
+const formRef = ref(null)
 
-const sendMessage = async () => {
+const FORMSPREE_ID = 'https://formspree.io/f/xwvavdln'
+
+const sendMessage = async (e) => {
+  e.preventDefault()
   isLoading.value = true
   formMessage.value = ''
   
   try {
-    const response = await fetch('/api/send-message', {
+    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -119,55 +126,21 @@ const sendMessage = async () => {
       body: JSON.stringify(form)
     })
     
-    const data = await response.json()
-    
-    if (data.success) {
+    if (response.ok) {
       formMessageType.value = 'success'
-      formMessage.value = data.message
+      formMessage.value = 'Message sent successfully! I\'ll get back to you soon.'
       form.name = ''
       form.email = ''
       form.message = ''
     } else {
       formMessageType.value = 'error'
-      formMessage.value = data.message
+      formMessage.value = 'Failed to send message. Please try again.'
     }
   } catch (error) {
     formMessageType.value = 'error'
     formMessage.value = 'Network error. Please try again later.'
   } finally {
     isLoading.value = false
-  }
-    const sendMessage = async () => {
-    isLoading.value = true
-    formMessage.value = ''
-    
-    try {
-      const response = await fetch('/.netlify/functions/send-message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(form)
-      })
-      
-      const data = await response.json()
-      
-      if (data.success) {
-        formMessageType.value = 'success'
-        formMessage.value = data.message
-        form.name = ''
-        form.email = ''
-        form.message = ''
-      } else {
-        formMessageType.value = 'error'
-        formMessage.value = data.message
-      }
-    } catch (error) {
-      formMessageType.value = 'error'
-      formMessage.value = 'Network error. Please try again later.'
-    } finally {
-      isLoading.value = false
-    }
   }
 }
 </script>
