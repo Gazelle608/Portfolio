@@ -322,5 +322,38 @@ const sendMessage = async () => {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .contact-info {
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+  }
+
+  .info-card h4 {
+    font-size: 1rem;
+  }
+
+  .info-card p,
+  .info-card a {
+    word-break: break-word;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .form-control {
+    font-size: 0.95rem;
+  }
 }
 </style>
