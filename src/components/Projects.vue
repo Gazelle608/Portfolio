@@ -94,6 +94,7 @@ import { projects } from '../data/projects.js'
   font-size: 3.5rem;
   z-index: 2;
   transition: var(--transition);
+  color: var(--accent) !important;
 }
 
 .icon-background {
