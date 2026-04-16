@@ -9,7 +9,7 @@
       <div class="about-grid">
         <div class="about-image">
           <div class="image-frame">
-            <img src="/images/pfp.png" alt="Gazelle Pearson">
+            <img src="/images/about.jpg" alt="Gazelle Pearson">
           </div>
         </div>
         
