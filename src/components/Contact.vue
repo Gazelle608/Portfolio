@@ -108,22 +108,22 @@ const form = reactive({
 const isLoading = ref(false)
 const formMessage = ref('')
 const formMessageType = ref('success')
-const formRef = ref(null)
 
-const FORMSPREE_ID = 'https://formspree.io/f/xwvavdln'
-
-const sendMessage = async (e) => {
-  e.preventDefault()
+const sendMessage = async () => {
   isLoading.value = true
   formMessage.value = ''
   
   try {
-    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+    const response = await fetch('https://formspree.io/f/xwvavdln', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(form)
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message
+      })
     })
     
     if (response.ok) {
