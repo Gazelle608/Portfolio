@@ -34,7 +34,7 @@
             </div>
             <div>
               <h4>Response Time</h4>
-              <p>Within 24 hours</p>
+              <p>As Soon As Available</p>
             </div>
           </div>
         </div>
