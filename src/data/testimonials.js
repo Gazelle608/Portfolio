@@ -29,5 +29,11 @@ export const testimonials = [
         name: "Mogamat Toufeeq Farat",
         role: "YouthCode Off-site | Progamme Support Lead",
         message: "Gazelle is a hardworking and punctual individual who consistently exceeds expectations. She delivers quality work, works well in teams, and is a strong developer. I’ve enjoyed working with her and would recommend her for any junior role.",
+    },
+    {
+        id: 6,
+        name: "Joshua Jacobs",
+        role: "LC Studio Intern",
+        message: "Gazelle is an amazing person to work with. She comes up with great ideas and her website designs are clean and efficient. Slick and mordern designs.",
     }
 ]
