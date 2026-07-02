@@ -15,6 +15,9 @@
             <div>
               <h4>Email</h4>
               <a href="mailto:pearsongazelle@gmail.com">pearsongazelle@gmail.com</a>
+              <p>
+                <a href="tel:+27123456789">+27 65 859 9411</a>
+              </p>
             </div>
           </div>
           

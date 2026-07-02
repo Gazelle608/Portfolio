@@ -35,7 +35,8 @@ export const projects = [
         icon: "fas fa-user-graduate",
         iconColor: "#0f5c4b",
         tags: ["HTML"],
-        githubLink: "https://github.com/Gazelle608/student_registration_form.git"
+        githubLink: "https://github.com/Gazelle608/student_registration_form.git",
+        liveDemoLink: "https://student-registration-form-orcin-one.vercel.app/"
     },
     {
         id: 2,
@@ -44,7 +45,8 @@ export const projects = [
         icon: "fas fa-laptop-code",
         iconColor: "#1a7f6b",
         tags: ["HTML", "CSS"],
-        githubLink: "https://github.com/Gazelle608/tech_collection.git"
+        githubLink: "https://github.com/Gazelle608/tech_collection.git",
+        liveDemoLink: "https://tech-collection-weld.vercel.app/"
     },
     {
         id: 3,
@@ -53,6 +55,6 @@ export const projects = [
         icon: "fas fa-globe-asia",
         iconColor: "#2a9d8f",
         tags: ["Vue.js", "Node.js", "Express", "E-commerce"],
-        githubLink: "https://github.com/Gazelle608/So_Where_To.git"
+        githubLink: "https://github.com/Gazelle608/So_Where_To.git",
     }
 ]
