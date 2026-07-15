@@ -13,7 +13,7 @@
             <i class="fas fa-arrow-down"></i>
             View My Work
           </a>
-          <a href="/Resume.pdf" class="btn btn-outline" download>
+          <a href="/Gazelle Pearson - CV (2).pdf" class="btn btn-outline" download>
             <i class="fas fa-download"></i>
             Download CV
           </a>
